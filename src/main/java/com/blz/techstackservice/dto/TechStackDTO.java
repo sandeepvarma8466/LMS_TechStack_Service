@@ -6,10 +6,10 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 public class TechStackDTO {
-    @NotBlank(message = "image path cannot be empty")
+    //@NotBlank(message = "image path cannot be empty")
     private String imagePath;
-    @NotBlank(message = "status cannot be empty")
+    //@NotBlank(message = "status cannot be empty")
     private boolean status;
-    @NotBlank(message = "tech name cannot be empty")
+    //@NotBlank(message = "tech name cannot be empty")
     private String techName;
 }

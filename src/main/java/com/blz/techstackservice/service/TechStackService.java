@@ -23,7 +23,7 @@ public class TechStackService implements ITechStackService {
     RestTemplate restTemplate;
     @Override
     public TechStackModel insertTechStack(TechStackDTO techStackDTO, String token) {
-        boolean isUserPresent = restTemplate.getForObject("http://localhost:8068/adminmodule/validateuser/" + token,
+        boolean isUserPresent = restTemplate.getForObject("http://admin-service:8068/adminmodule/validateuser/" + token,
                 Boolean.class);
         if (isUserPresent) {
             TechStackModel techStackModel = new TechStackModel(techStackDTO);
@@ -35,7 +35,7 @@ public class TechStackService implements ITechStackService {
 
     @Override
     public TechStackModel updateTechStack(Integer id, TechStackDTO techStackDTO, String token) {
-        boolean isUserPresent = restTemplate.getForObject("http://localhost:8068/adminmodule/validateuser/" + token,
+        boolean isUserPresent = restTemplate.getForObject("http://admin-service:8068/adminmodule/validateuser/" + token,
                 Boolean.class);
         if (isUserPresent) {
             Optional<TechStackModel> isTechIdPresent = stackRepository.findById(id);
@@ -54,7 +54,7 @@ public class TechStackService implements ITechStackService {
 
     @Override
     public List<TechStackModel> fetchAllDetails(String token) {
-        boolean isUserPresent = restTemplate.getForObject("http://localhost:8068/adminmodule/validateuser/" + token,
+        boolean isUserPresent = restTemplate.getForObject("http://admin-service:8068/adminmodule/validateuser/" + token,
                 Boolean.class);
         if (isUserPresent) {
             List<TechStackModel> isDataPresent = stackRepository.findAll();
@@ -68,7 +68,7 @@ public class TechStackService implements ITechStackService {
 
     @Override
     public TechStackModel fetchDetailsById(Integer id, String token) {
-        boolean isUserPresent = restTemplate.getForObject("http://localhost:8068/adminmodule/validateuser/" + token,
+        boolean isUserPresent = restTemplate.getForObject("http://admin-service:8068/adminmodule/validateuser/" + token,
                 Boolean.class);
         if (isUserPresent) {
             Optional<TechStackModel> isIdPresent = stackRepository.findById(id);
@@ -82,7 +82,7 @@ public class TechStackService implements ITechStackService {
 
     @Override
     public TechStackModel deleteTechStack(Integer id, String token) {
-        boolean isUserPresent = restTemplate.getForObject("http://localhost:8068/adminmodule/validateuser/" + token,
+        boolean isUserPresent = restTemplate.getForObject("http://admin-service:8068/adminmodule/validateuser/" + token,
                 Boolean.class);
         if (isUserPresent) {
             Optional<TechStackModel> isIdPresent = stackRepository.findById(id);

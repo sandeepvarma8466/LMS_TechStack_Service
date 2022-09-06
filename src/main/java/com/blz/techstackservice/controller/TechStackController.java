@@ -19,7 +19,8 @@ public class TechStackController {
     ITechStackService techStackService;
 
     @PostMapping("/inserttechstack")
-    public ResponseEntity<TeckStackResponse> insertTechStack(@Valid @RequestBody TechStackDTO techStackDTO, @RequestHeader String token) {
+	public ResponseEntity<TeckStackResponse> insertTechStack(
+			/* @Valid */ @RequestBody TechStackDTO techStackDTO, @RequestHeader String token) {
         TechStackModel stackModel = techStackService.insertTechStack(techStackDTO, token);
         TeckStackResponse stackResponse = new TeckStackResponse(200,"TechStack inserted successfully",stackModel);
         return new ResponseEntity<>(stackResponse, HttpStatus.OK);
